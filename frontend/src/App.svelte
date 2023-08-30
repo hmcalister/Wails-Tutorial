@@ -1,12 +1,16 @@
 <script>
   import logo from './assets/images/logo-universal.png'
-  import {Greet} from '../wailsjs/go/main/App.js'
+  import {Greet, RandomString} from '../wailsjs/go/main/App.js'
 
   let resultText = "Please enter your name below 👇"
   let name
 
   function greet() {
     Greet(name).then(result => resultText = result)
+  }
+
+  function randomString() {
+    RandomString().then(result => resultText = result)
   }
 </script>
 
@@ -16,6 +20,7 @@
   <div class="input-box" id="input">
     <input autocomplete="off" bind:value={name} class="input" id="name" type="text"/>
     <button class="btn" on:click={greet}>Greet</button>
+    <button class="btn" on:click={randomString}>Random String</button>
   </div>
 </main>
 
@@ -40,7 +45,7 @@
   }
 
   .input-box .btn {
-    width: 60px;
+    width: auto;
     height: 30px;
     line-height: 30px;
     border-radius: 3px;
